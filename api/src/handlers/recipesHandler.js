@@ -1,4 +1,4 @@
-const createRecipeHandler = () => {
+const createRecipeHandler = (req, res) => {
 
 }
 
