@@ -19,7 +19,6 @@ const objFilter = (obj) => {
         }),
     }
 }
-// `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`
 
 const getRecipeById = async (idReceta, source) => {
     const recipe =
