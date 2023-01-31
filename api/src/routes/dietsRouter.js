@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const {Recipe, Diet} = require("../db")
+const {Recipe, Diet} = require("../db");
 
 const dietsRouter = Router();
 const dietsTypes = ["Gluten Free", "Ketogenic", "Vegetarian", "Lacto-Vegetarian", "Ovo-Vegetarian", "Vegan", "Pescetarian", "Paleo", "Primal", "Low FODMAP", "Whole30"];
@@ -19,7 +19,6 @@ dietsRouter.get("/", async (req, res)=>{
     catch (error) {
         res.status(400).json({error: error.message});
     }
-
 
 });
 
