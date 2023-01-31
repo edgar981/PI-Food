@@ -11,7 +11,12 @@ const objFilter = (obj) => {
         diets: obj.diets,
         summary: obj.summary,
         healthScore: obj.healthScore,
-        instructions: obj.instructions,
+        instructions: obj.analyzedInstructions[0]?.steps.map(p => {
+            return {
+                number: p.number,
+                step: p.step,
+            }
+        }),
     }
 }
 // `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`
