@@ -1,6 +1,6 @@
 
 const {DataTypes} = require("sequelize");
-const {getRecipeById, createRecipe, searchRecipesByName} = require("../controllers/recipeControllers");
+const {getRecipeById, createRecipe, searchRecipesByName, getAllRecipes} = require("../controllers/recipeControllers");
 
 const createRecipeHandler = async (req, res) => {
     const { name, summary, healthScore, instructions, dietName} = req.body;
@@ -30,7 +30,7 @@ const getRecipesHandler = async (req, res) => {
     const { name } = req.query;
 
     const results = name ? await searchRecipesByName(name)
-        : res.send("No se encontraron recetas con ese nombre");
+        : await getAllRecipes();
 
     res.status(200).json(results);
 }
@@ -41,26 +41,4 @@ module.exports = {
     getRecipeHandler,
     getRecipesHandler
 }
-
-// id:{
-//     type:DataTypes.UUID,
-//         primaryKey: true,
-//         defaultValue: DataTypes.UUIDV4,
-//         allowNull: false,
-// },
-// name: {
-//     type: DataTypes.STRING,
-//         allowNull: false,
-// },
-// summary: {
-//     type: DataTypes.STRING,
-//         allowNull: false,
-// },
-// healthScore: {
-//     type: DataTypes.REAL,
-// },
-// instructions: {
-//     type: DataTypes.TEXT,
-// }
-// }
 

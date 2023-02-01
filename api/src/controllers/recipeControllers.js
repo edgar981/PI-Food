@@ -61,4 +61,17 @@ const searchRecipesByName = async (name) => {
     return [...filteredApi, ...databaseRecipes];
 }
 
-module.exports = {getRecipeById, createRecipe, searchRecipesByName}
+const getAllRecipes = async () => {
+    const databaseRecipes = await Recipe.findAll();
+
+    const apiRecipesRaw = (
+        await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`)
+    ).data;
+
+    const apiRecipes = apiRecipesRaw.results.map(r => objFilter(r));
+
+
+    return [...databaseRecipes, ...apiRecipes];
+}
+
+module.exports = {getRecipeById, createRecipe, searchRecipesByName, getAllRecipes}
