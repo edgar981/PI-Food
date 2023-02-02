@@ -31,6 +31,8 @@ const getRecipesHandler = async (req, res) => {
 
     const results = name ? await searchRecipesByName(name)
         : await getAllRecipes();
+    // const results = name ? await searchRecipesByName(name)
+    //     : res.status(400).json("No se encontraron recetas");
 
     res.status(200).json(results);
 }

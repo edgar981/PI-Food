@@ -337,7 +337,7 @@ export default function Cards() {
                             key={index}
                             name={r.name}
                             image={r.image}
-                            diets={r.diets.map(d => d.charAt(0).toUpperCase() + d.substr(1) + " ")}
+                            diets={r.diets}
                         />
                     )
                 })

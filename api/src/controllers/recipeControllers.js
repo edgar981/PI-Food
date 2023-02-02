@@ -5,10 +5,12 @@ const {API_KEY} = process.env;
 const objFilter = (obj) => {
     return {
         id: obj.id,
+        vegetarian: obj.vegetarian,
+        lowFodmap: obj.lowFodmap,
         image: obj.image,
         name: obj.title,
         dishTypes: obj.dishTypes,
-        diets: obj.diets,
+        diets: obj.diets.join(", "),
         summary: obj.summary,
         healthScore: obj.healthScore,
         instructions: obj.analyzedInstructions[0]?.steps.map(p => {
@@ -19,6 +21,7 @@ const objFilter = (obj) => {
         }),
     }
 }
+//.map(d => d.charAt(0).toUpperCase() + d.substr(1) + " ")
 
 const getRecipeById = async (idReceta, source) => {
     const recipe =

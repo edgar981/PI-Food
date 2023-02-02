@@ -1,4 +1,13 @@
-import {GET_RECIPES, GET_RECIPE_DETAIL, SEARCH_RECIPE, GET_DIET_TYPES, ADD_RECIPE, FILTER, ORDER} from "./actionTypes";
+import {
+    GET_RECIPES,
+    GET_RECIPE_DETAIL,
+    SEARCH_RECIPE,
+    GET_DIET_TYPES,
+    ADD_RECIPE,
+    FILTER,
+    ORDER_AZ,
+    ORDER_SCORE
+} from "./actionTypes";
 
 const initialState = {
     recipes: [],
@@ -37,7 +46,7 @@ const rootReducer = (state=initialState, action) => {
             }
             return {...state, recipes: plusCheck()};
 
-        case ORDER:
+        case ORDER_AZ:
             const allRecipesOrderCopy = [...state.recipes];
             const order = allRecipesOrderCopy.sort((a, b) => {
                if (a.name.toLowerCase() > b.name.toLowerCase()) {
@@ -48,9 +57,21 @@ const rootReducer = (state=initialState, action) => {
                }
                return 0;
             });
-            const ordered = action.payload === "default" ? allRecipesOrderCopy : order;
-            return {...state, recipes: ordered}
+            // const ordered = action.payload === "default" ? allRecipesOrderCopy : order;
+            return {...state, recipes: order};
 
+        case ORDER_SCORE:
+            const allRecipesOrderScore = [...state.recipes];
+            const orderScore = allRecipesOrderScore.sort((a,b) => {
+                if (a.healthScore > b.healthScore) {
+                    return "Ascendente" === action.payload ? 1 : -1;
+                }
+                if (a.healthScore < b.healthScore) {
+                    return "Descendente" === action.payload ? 1 : -1;
+                }
+                return 0;
+            });
+            return {...state, recipes: orderScore};
 
         default:
             return {...state};

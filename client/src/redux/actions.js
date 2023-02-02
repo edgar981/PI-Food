@@ -1,5 +1,15 @@
 // eslint-disable-next-line
-import {GET_RECIPES, ADD_RECIPE, GET_RECIPE_DETAIL, GET_DIET_TYPES, SEARCH_RECIPE, LOCAL_HOST, FILTER, ORDER} from "./actionTypes";
+import {
+    GET_RECIPES,
+    ADD_RECIPE,
+    GET_RECIPE_DETAIL,
+    GET_DIET_TYPES,
+    SEARCH_RECIPE,
+    LOCAL_HOST,
+    FILTER,
+    ORDER_AZ,
+    ORDER_SCORE
+} from "./actionTypes";
 import axios from "axios";
 
 export const getRecipes = () => {
@@ -66,7 +76,7 @@ export const getDiets= () => {
 
 export const orderRecipes = (order) => {
     return {
-        type: ORDER,
+        type: ORDER_AZ,
         payload: order,
     }
 }
@@ -75,5 +85,12 @@ export const filterRecipes = (d) => {
     return {
         type: FILTER,
         payload: d,
+    }
+}
+
+export const orderRecipesScore = (order) => {
+    return {
+        type: ORDER_SCORE,
+        payload: order,
     }
 }

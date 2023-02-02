@@ -5,5 +5,5 @@ export const SEARCH_RECIPE = "SEARCH_RECIPE";
 export const GET_DIET_TYPES = "GET_DIET_TYPES";
 export const LOCAL_HOST = "http://localhost:3001"
 export const FILTER = "FILTER";
-export const ORDER = "ORDER";
-
+export const ORDER_AZ = "ORDER_AZ";
+export const ORDER_SCORE = "ORDER_SCORE";

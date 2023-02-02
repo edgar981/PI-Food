@@ -11,7 +11,7 @@ Tipo de dieta (vegetariano, vegano, apto celíaco, etc)
 import {useEffect} from "react";
 import {useDispatch} from "react-redux";
 import Cards from "../../components/Cards/Cards";
-import {filterRecipes, getRecipes, orderRecipes} from "../../redux/actions";
+import {filterRecipes, getRecipes, orderRecipes, orderRecipesScore} from "../../redux/actions";
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -30,12 +30,20 @@ const Home = () => {
         if (e.target.name === "alphabetical") {
             dispatch(orderRecipes(e.target.value))
         }
+        if (e.target.name === "score") {
+            dispatch(orderRecipesScore(e.target.value))
+        }
     }
 
     return(
         <div>
             <h1>Este es el home</h1>
             <div>
+                <select name='score' onChange={handleClick} >
+                    <option value="default">Default...</option>
+                    <option value="Ascendente" >De Menor a Mayor</option>
+                    <option value="Descendente" >De Mayor a Menor</option>
+                </select>
                 <select name='alphabetical' onChange={handleClick} >
                     <option value="default">Default...</option>
                     <option value="Ascendente" >A to Z</option>
