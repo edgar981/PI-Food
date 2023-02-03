@@ -43,7 +43,7 @@ const getRecipeById = async (idReceta, source) => {
 
 const createRecipe = async (name, summary, healthScore, instructions, dietName) => {
 
-    const newRecipe = await Recipe.create({name, summary, healthScore, instructions});
+    const newRecipe = await Recipe.create({name, summary, healthScore, instructions, dietName});
     let dietRecipes = await Diet.findAll({      //Busco y matcheo las dietas pasadas por body en mi db
         where: {name: dietName}                         //filtro por nombre
     });

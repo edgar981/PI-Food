@@ -1,7 +1,6 @@
 // eslint-disable-next-line
 import {
     GET_RECIPES,
-    ADD_RECIPE,
     GET_RECIPE_DETAIL,
     GET_DIET_TYPES,
     SEARCH_RECIPE,
@@ -59,8 +58,12 @@ export function getRecipesByName(recipeName) {
 
 export function addRecipe(recipe) {
     return async function () {
-        const apiData = await axios.post(`${LOCAL_HOST}/recipes`, recipe);
-        return apiData;
+        try {
+            const apiData = await axios.post(`${LOCAL_HOST}/recipes`, recipe);
+            return apiData;
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
 

@@ -36,7 +36,12 @@ const rootReducer = (state=initialState, action) => {
         case FILTER:
             const allRecipes = state.allRecipes;
 
-            const filtered = allRecipes.filter(r => r.diets?.some(d => d.toLowerCase() === action.payload.toLowerCase()));
+
+            const filtered = allRecipes.filter(r => {
+                const arrDiets = r.diets?.split(", ");
+
+                return arrDiets?.some(d => d.toLowerCase() === action.payload.toLowerCase());
+                });
 
             const plusCheck = () => {
                 return action.payload.toLowerCase() === 'vegetarian' ? allRecipes.filter(r => r.vegetarian === true)

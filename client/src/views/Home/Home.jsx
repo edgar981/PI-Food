@@ -28,10 +28,10 @@ const Home = () => {
             dispatch(filterRecipes(e.target.value));
         }
         if (e.target.name === "alphabetical") {
-            dispatch(orderRecipes(e.target.value))
+            dispatch(orderRecipes(e.target.value));
         }
         if (e.target.name === "score") {
-            dispatch(orderRecipesScore(e.target.value))
+            dispatch(orderRecipesScore(e.target.value));
         }
     }
 
@@ -40,7 +40,7 @@ const Home = () => {
             <h1>Este es el home</h1>
             <div>
                 <select name='score' onChange={handleClick} >
-                    <option value="default">Default...</option>
+                    <option value="default" selected>Default...</option>
                     <option value="Ascendente" >De Menor a Mayor</option>
                     <option value="Descendente" >De Mayor a Menor</option>
                 </select>
@@ -50,7 +50,7 @@ const Home = () => {
                     <option value="Descendente" >Z to A</option>
                 </select>
                 <select name="filter" onChange={handleClick }>
-                    <option value="default">Select...</option>
+                    <option value="default" selected>Select...</option>
                     <option value="gluten free">Gluten Free</option>
                     <option value="dairy free">Dairy Free</option>
                     <option value="ketogenic">Ketogenic</option>
