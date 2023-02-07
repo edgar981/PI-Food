@@ -1,0 +1,27 @@
+/*.home{*/
+/*    width: 1250px;*/
+/*    max-width: 100%;*/
+/*    margin: 0 auto;*/
+/*    background-color: #C3FCF1;*/
+
+/*}*/
+.home {
+    background-image: url("../../assets/pexels-ella.jpg");
+    height: 160vh;
+    width: 100vw;
+    background-size: cover;
+
+}
+
+
+
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+        transform: rotateX(-10deg);
+    }
+    to {
+        opacity: 1;
+        transform: rotateX(0);
+    }
+}

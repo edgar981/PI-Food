@@ -8,10 +8,11 @@ Tipo de dieta (vegetariano, vegano, apto celíaco, etc)
  Botones/Opciones para ordenar tanto ascendentemente como descendentemente las recetas por orden alfabético y por health score (nivel de comida saludable).
  Paginado para ir buscando y mostrando las siguientes recetas, 9 recetas por pagina, mostrando las primeros 9 en la primer pagina.
  */
-import {useEffect} from "react";
+import React, {useEffect} from "react";
 import {useDispatch} from "react-redux";
 import Cards from "../../components/Cards/Cards";
 import {filterRecipes, getRecipes, orderRecipes, orderRecipesScore} from "../../redux/actions";
+import "./home.css"
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -36,8 +37,8 @@ const Home = () => {
     }
 
     return(
-        <div>
-            <h1>Este es el home</h1>
+        <div className="home">
+            <div className="lp-overlay-home"></div>
             <div>
                 <select name='score' onChange={handleClick} >
                     <option value="default" selected>Default...</option>
@@ -50,7 +51,7 @@ const Home = () => {
                     <option value="Descendente" >Z to A</option>
                 </select>
                 <select name="filter" onChange={handleClick }>
-                    <option value="default" selected>Select...</option>
+                    <option value="default" >Select...</option>
                     <option value="gluten free">Gluten Free</option>
                     <option value="dairy free">Dairy Free</option>
                     <option value="ketogenic">Ketogenic</option>

@@ -1,5 +1,7 @@
 import Card from '../Card/Card';
 import {useSelector} from "react-redux";
+import "./Cards.css"
+import React from "react";
 
 export default function Cards() {
     const recipes = useSelector(state => state.recipes);
@@ -328,7 +330,6 @@ export default function Cards() {
 
     return (
         <div className="cards">
-
             {
                 recipes.map((r, index)=>{
                     return (
@@ -337,7 +338,7 @@ export default function Cards() {
                             key={index}
                             name={r.name}
                             image={r.image}
-                            diets={r.diets}
+                            diets={r.diets.charAt(0).toUpperCase() + r.diets.slice(1)}
                         />
                     )
                 })
