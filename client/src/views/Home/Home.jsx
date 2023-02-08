@@ -8,7 +8,7 @@ Tipo de dieta (vegetariano, vegano, apto celíaco, etc)
  Botones/Opciones para ordenar tanto ascendentemente como descendentemente las recetas por orden alfabético y por health score (nivel de comida saludable).
  Paginado para ir buscando y mostrando las siguientes recetas, 9 recetas por pagina, mostrando las primeros 9 en la primer pagina.
  */
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
 import Cards from "../../components/Cards/Cards";
 import {filterRecipes, getRecipes, orderRecipes, orderRecipesScore} from "../../redux/actions";
@@ -16,6 +16,7 @@ import "./home.css"
 
 const Home = () => {
     const dispatch = useDispatch();
+    const [isOpen, setIsOpen] = useState(false);
     // const [order, setOrder] = useState('');
 
     useEffect(()=>{
@@ -39,31 +40,40 @@ const Home = () => {
     return(
         <div className="home">
             <div className="lp-overlay-home"></div>
-            <div>
-                <select name='score' onChange={handleClick} >
-                    <option value="default" selected>Default...</option>
-                    <option value="Ascendente" >De Menor a Mayor</option>
-                    <option value="Descendente" >De Mayor a Menor</option>
-                </select>
-                <select name='alphabetical' onChange={handleClick} >
-                    <option value="default">Default...</option>
-                    <option value="Ascendente" >A to Z</option>
-                    <option value="Descendente" >Z to A</option>
-                </select>
-                <select name="filter" onChange={handleClick }>
-                    <option value="default" >Select...</option>
-                    <option value="gluten free">Gluten Free</option>
-                    <option value="dairy free">Dairy Free</option>
-                    <option value="ketogenic">Ketogenic</option>
-                    <option value="vegetarian">Vegetarian</option>
-                    <option value="lacto ovo vegetarian">Lacto ovo Vegetarian</option>
-                    <option value="vegan">Vegan</option>
-                    <option value="pescatarian">Pescetarian</option>
-                    <option value="paleolithic">Paleo</option>
-                    <option value="primal">Primal</option>
-                    <option value="low fodmap">Low FODMAP</option>
-                    <option value="whole 30">Whole 30</option>
-                </select>
+
+            <div className="select-menu">
+                <div className="por-score">
+                    <select name='score' onChange={handleClick} defaultValue="default">
+                        <option value="default">Health score...</option>
+                        <option value="Ascendente" >De Menor a Mayor</option>
+                        <option value="Descendente" >De Mayor a Menor</option>
+                    </select>
+                </div>
+
+                <div className="por-letra">
+                    <select name='alphabetical' onChange={handleClick} defaultValue="default">
+                        <option value="default">Order...</option>
+                        <option value="Ascendente" >A to Z</option>
+                        <option value="Descendente" >Z to A</option>
+                    </select>
+                </div>
+
+                <div className="por-dieta">
+                    <select name="filter" onChange={handleClick } defaultValue="default">
+                        <option value="default" >Diets...</option>
+                        <option value="gluten free">Gluten Free</option>
+                        <option value="dairy free">Dairy Free</option>
+                        <option value="ketogenic">Ketogenic</option>
+                        <option value="vegetarian">Vegetarian</option>
+                        <option value="lacto ovo vegetarian">Lacto ovo Vegetarian</option>
+                        <option value="vegan">Vegan</option>
+                        <option value="pescatarian">Pescetarian</option>
+                        <option value="paleolithic">Paleo</option>
+                        <option value="primal">Primal</option>
+                        <option value="low fodmap">Low FODMAP</option>
+                        <option value="whole 30">Whole 30</option>
+                    </select>
+                </div>
             </div>
             <Cards />
         </div>

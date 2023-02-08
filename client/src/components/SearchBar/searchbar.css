@@ -1,0 +1,9 @@
+.searchbar{
+    position: relative;
+    width: 35px;
+    height: 35px;
+    background: #EC9B46;
+    border-radius: 35px;
+    transition: 0.5s;
+    box-shadow: 0 0 0 2px #ce7415;
+}

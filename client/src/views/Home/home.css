@@ -1,27 +1,147 @@
-/*.home{*/
-/*    width: 1250px;*/
-/*    max-width: 100%;*/
-/*    margin: 0 auto;*/
-/*    background-color: #C3FCF1;*/
-
-/*}*/
 .home {
     background-image: url("../../assets/pexels-ella.jpg");
     height: 160vh;
     width: 100vw;
     background-size: cover;
+    animation: transitionIn 0.85s;
+}
 
+.select-menu{
+    display: flex;
+}
+
+.por-score{
+    padding: 0px 15px 0 50px;
+}
+.por-score select{
+    width: 200px;
+    border-radius:17px;
+    position: relative;
+    box-sizing:border-box;
+    animation: move 3s ease-in-out infinite;
+    top: 30px;
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    height: 30px;
+    color: #ffffff;
+    /*#C7A1FF*/
+    box-shadow: 0 15px 25px #EC9B46;
+    border: #53E6DA;
+    background: linear-gradient(#53E6DA , #4b8078);
+    /*background: #53E6DA;*/
+    animation: move 3s ease-in-out infinite;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.por-score select:hover, .por-score:hover:after{
+    animation-play-state:paused;
+}
+
+.por-score:after{
+    content:"";
+    position: absolute;
+    width: 150px;
+    height: 5px;
+    background:rgba(0,0,0, 0);
+    display: block;
+    top:150px;
+    left:48px;
+    margin: auto;
+    border-radius:50%;
+    box-shadow:0 15px 10px rgba(0,0,0, 0.4);
+    animation: moveShadow 3s ease-in-out infinite;
+}
+
+.por-letra select{
+    width: 200px;
+    border-radius:17px;
+    position: relative;
+    box-sizing:border-box;
+    animation: move 3s ease-in-out infinite;
+    top: 30px;
+    display: inline-block;
+    width: 150px;
+    height: 30px;
+    color: #ffffff;
+    /*#C7A1FF*/
+    box-shadow: 0 15px 25px #EC9B46;
+    border: #53E6DA;
+    background: linear-gradient(#53E6DA , #4b8078);
+    /*background: #53E6DA;*/
+    animation: move 3s ease-in-out infinite;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.por-letra select:hover, .por-letra:hover:after{
+    animation-play-state:paused;
+}
+
+.por-letra:after{
+    content:"";
+    position: absolute;
+    width: 160px;
+    height: 5px;
+    background:rgba(0,0,0, 0);
+    display: block;
+    top:150px;
+    left:210px;
+    margin: auto;
+    border-radius:50%;
+    box-shadow:0 15px 10px rgba(0,0,0, 0.4);
+    animation: moveShadow 3s ease-in-out infinite;
 }
 
 
+.por-dieta select{
+    width: 180px;
+    border-radius:17px;
+    position: relative;
+    box-sizing:border-box;
+    animation: move 3s ease-in-out infinite;
+    top: 30px;
+    display: inline-block;
+    height: 30px;
+    color: #ffffff;
+    /*#C7A1FF*/
+    box-shadow: 0 15px 25px #EC9B46;
+    border: #53E6DA;
+    background: linear-gradient(#53E6DA , #4b8078);
+    /*background: #53E6DA;*/
+    animation: move 4s ease-in-out infinite;
+    border-radius: 5px;
+    font-size: 16px;
+    left: 14px;
+}
 
-@keyframes transitionIn {
-    from {
-        opacity: 0;
-        transform: rotateX(-10deg);
-    }
-    to {
-        opacity: 1;
-        transform: rotateX(0);
-    }
+.por-dieta:after{
+    content:"";
+    position: absolute;
+    width: 180px;
+    height: 5px;
+    background:rgba(0,0,0, 0);
+    display: block;
+    top:150px;
+    left:380px;
+    margin: auto;
+    border-radius:50%;
+    box-shadow:0 15px 10px rgba(0,0,0, 0.4);
+    animation: moveShadow 3s ease-in-out infinite;
+}
+
+
+.por-dieta select:hover, .por-dieta:hover:after{
+    animation-play-state:paused;
+}
+
+@keyframes move{
+    0%, 100%{transform:translateY(-10px);}
+    50%{transform:translateY(0);}
+}
+
+@keyframes moveShadow{
+    0%,100%{transform:translateY(10px);opacity:0.4;}
+    50%{transform:translateY(0);opacity:1;}
 }
