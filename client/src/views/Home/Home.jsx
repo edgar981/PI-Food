@@ -67,7 +67,7 @@ const Home = () => {
                         <option value="vegetarian">Vegetarian</option>
                         <option value="lacto ovo vegetarian">Lacto ovo Vegetarian</option>
                         <option value="vegan">Vegan</option>
-                        <option value="pescatarian">Pescetarian</option>
+                        <option value="pescatarian">Pescatarian</option>
                         <option value="paleolithic">Paleo</option>
                         <option value="primal">Primal</option>
                         <option value="low fodmap">Low FODMAP</option>

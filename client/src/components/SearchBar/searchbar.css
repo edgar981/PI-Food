@@ -1,6 +1,6 @@
 .searchbar{
     position: relative;
-    width: 35px;
+    width: 37px;
     height: 35px;
     background: #eaa862;
     border-radius: 35px;
@@ -11,7 +11,7 @@
 }
 
 .searchbar.active{
-    width: 220px;
+    width: 250px;
 }
 
 .searchbar .icon{
@@ -75,18 +75,33 @@
     width: 15px;
     height: 15px;
     right: 10px;
-    background: black;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.go::before{
+.go{
+    overflow: hidden;
+    right: 1px;
+}
+
+.go.active::before{
+    right: 15px;
     position: absolute;
     content: '';
-    width: 1px;
-    height: 15px;
-    background: white;
+    width: 2px;
+    height: 13px;
+    background: #4B8078;
+    transform: rotate(65deg) translate(4px, -2px);
+}
 
+.go.active::after{
+    right: 15px;
+    position: absolute;
+    content: '';
+    width: 2px;
+    height: 13px;
+    background: #4B8078;
+    transform: rotate(-70deg) translate(3px, 3px);
 }

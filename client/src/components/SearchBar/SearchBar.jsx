@@ -18,13 +18,6 @@ export default function SearchBar() {
     }
 
     return (
-        // <div className="searchbar">
-        //     <div className="icon"></div>
-        //     <input type='text' name='search' placeholder='type name'
-        //            onChange={(e)=> handleInput(e)} value={recipe}
-        //     />
-        //     <button onClick={(e) => onSearch(e)}>Buscar</button>
-        // </div>
         <div className={`searchbar ${isActive && 'active'}`}>
             <div className="icon" onClick={()=>setIsActive(!isActive)}></div>
             <div className='input'>
@@ -32,8 +25,7 @@ export default function SearchBar() {
                        onChange={(e)=> handleInput(e)} value={recipe}
                 />
             </div>
-            <span className='go'></span>
-            {/*<button onClick={(e) => onSearch(e)}>Buscar</button>*/}
+            <span className={`go ${isActive && 'active'}`} onClick={(e) => onSearch(e)}></span>
         </div>
     );
 }

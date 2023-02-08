@@ -75,8 +75,8 @@
 
 @keyframes transitionIn {
     from {
-        opacity: 0;
-        transform: rotateX(-10deg);
+        opacity: 0.8;
+        transform: rotateX(-40deg);
     }
     to {
         opacity: 1;
