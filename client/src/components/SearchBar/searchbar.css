@@ -2,8 +2,91 @@
     position: relative;
     width: 35px;
     height: 35px;
-    background: #EC9B46;
+    background: #eaa862;
     border-radius: 35px;
     transition: 0.5s;
-    box-shadow: 0 0 0 2px #ce7415;
+    box-shadow: 0 0 0 2px #76c0b3;
+    overflow: hidden;
+    left: 180px;
+}
+
+.searchbar.active{
+    width: 220px;
+}
+
+.searchbar .icon{
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background: #eaa862;
+    border-radius: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.searchbar .icon::before{
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #4B8078;
+    border-radius: 50%;
+    transform: translate(-2px, -2px);
+}
+
+.searchbar .icon::after{
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 10px;
+    background: #4B8078;
+    border-radius: 50%;
+    transform: translate(5px, 5px) rotate(315deg);
+}
+
+.searchbar .input{
+    position: relative;
+    width: 200px;
+    height: 36px;
+    /*top: 2px;*/
+    left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchbar .input input{
+    background: #eaa862;
+    position: absolute;
+    top: 0px;
+    width: 80%;
+    height: 90%;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    color: #4B8078;
+}
+
+.go{
+    position: absolute;
+    top: 28%;
+    width: 15px;
+    height: 15px;
+    right: 10px;
+    background: black;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.go::before{
+    position: absolute;
+    content: '';
+    width: 1px;
+    height: 15px;
+    background: white;
+
 }
