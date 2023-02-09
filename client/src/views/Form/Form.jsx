@@ -7,11 +7,13 @@ Paso a paso
  Posibilidad de seleccionar/agregar uno o más tipos de dietas
  Botón/Opción para crear una nueva receta
  */
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import validate from "./validation";
 import {useDispatch} from "react-redux";
 import {addRecipe, getDiets} from "../../redux/actions";
 import {useNavigate} from "react-router-dom";
+import "./form.css"
+import imageForm from "../../assets/pexels-larissa-deruzzi-6546181.jpg";
 
 const Form = () => {
     const dispatch = useDispatch();
@@ -84,55 +86,75 @@ const Form = () => {
 
 
     return(
-        <div>
-            <h1>Este es el form</h1>
-            <form onSubmit={e => handleSubmit(e)}>
-                <label>Name: </label>
-                <input name="name" type="text" value={inputs.name} onChange={handleChange}/>
-                {errors.name ? <p className='danger'>{errors.name}</p> : null}
+        <div className="form">
+            <div className="lp-overlay-form"></div>
+            <div className="form-card">
 
-                <p>Summary:</p>
-                {/*<label>Summary: </label>*/}
-                <textarea name="summary" value={inputs.summary} onChange={handleChange} rows="5" cols="20"></textarea><br/><br/>
-                {errors.summary ? <p className='danger'>{errors.summary}</p> : null}
-
-                <label>Health Score: </label>
-                <input name="healthScore" type="number" value={inputs.healthScore} onChange={handleChange}/>
-                {errors.healthScore ? <p className='danger'>{errors.healthScore}</p> : null}
-
-                <p>Instructions:</p>
-                {/*<label>Instructions: </label>*/}
-                <textarea name="instructions" value={inputs.instructions} onChange={handleChange} rows="5" cols="20"></textarea><br/><br/>
-
-
-                <div className="checkbox diets">
-                    <input type="checkbox" name="gluten free" value={"gluten free"} onChange={handleCheck}/>
-                    <label htmlFor="gluten free">Gluten free</label><br/>
-                    <input type="checkbox" name="ketogenic" value={"ketogenic"} onChange={handleCheck}/>
-                    <label htmlFor="ketogenic">Ketogenic</label><br/>
-                    <input type="checkbox" name="vegetarian" value={"vegetarian"} onChange={handleCheck}/>
-                    <label htmlFor="vegetarian">Vegetarian</label><br/>
-                    <input type="checkbox" name="lacto ovo vegetarian" value={"lacto ovo vegetarian"} onChange={handleCheck}/>
-                    <label htmlFor="lacto ovo vegetarian">Lacto ovo vegetarian</label><br/>
-                    <input type="checkbox" name="vegan" value={"vegan"} onChange={handleCheck}/>
-                    <label htmlFor="vegan">Vegan</label><br/>
-                    <input type="checkbox" name="pescatarian" value={"pescatarian"} onChange={handleCheck}/>
-                    <label htmlFor="pescatarian">Pescatarian</label><br/>
-                    <input type="checkbox" name="paleolithic" value={"paleolithic"} onChange={handleCheck}/>
-                    <label htmlFor="paleolithic">Paleolithic</label><br/>
-                    <input type="checkbox" name="primal" value={"primal"} onChange={handleCheck}/>
-                    <label htmlFor="primal">Primal</label><br/>
-                    <input type="checkbox" name="low fodmap" value={"low fodmap"} onChange={handleCheck}/>
-                    <label htmlFor="low fodmap">Low fodmap</label><br/>
-                    <input type="checkbox" name="whole 30" value={"whole 30"} onChange={handleCheck}/>
-                    <label htmlFor="whole 30">Whole 30</label><br/>
-                    <input type="checkbox" name="dairy free" value={"dairy free"} onChange={handleCheck}/>
-                    <label htmlFor="dairy free">Dairy free</label><br/>
+                {/*<img src={imageForm} className="img-form" alt=''/>*/}
+                {/*<div className="lp-overlay"></div>*/}
+                {/* */}
+                <div className="text-form">
+                    <h1>Create your recipe</h1>
                 </div>
-                <br/>
 
-                <button type="submit"> Enviar </button>
-            </form>
+                <form onSubmit={e => handleSubmit(e)} className="formulario">
+                    <div className="d-name">
+                        <input name="name" type="text" className="n-name" value={inputs.name} onChange={handleChange} required="required"/>
+                        <span>Name</span>
+                        {errors.name ? <p className='danger'>{errors.name}</p> : null}
+                    </div>
+
+                    <div className="d-summary">
+                        <textarea name="summary" className="n-summary" value={inputs.summary} required="required"
+                                  onChange={handleChange} rows="5" cols="20"></textarea>
+                        <span>Summary</span>
+                        {errors.summary ? <p className='danger'>{errors.summary}</p> : null}<br/>
+                    </div>
+
+                    <div className="d-hs">
+                        <label className="l-hs">Health Score</label>
+                        <input name="healthScore" type="number" className="healthScore" value={inputs.healthScore} onChange={handleChange}/>
+                    </div>
+                    <div className="l-hse">{errors.healthScore ? <p className='danger'>{errors.healthScore}</p> : null}</div>
+
+                    <div className="d-instructions">
+                        <textarea className="instructions" name="instructions" required="required" value={inputs.instructions} onChange={handleChange} rows="5" cols="20"></textarea><br/><br/>
+                        <span>Instructions</span>
+                    </div>
+
+
+                    <div className="checkbox-diets">
+                        <input type="checkbox" name="gluten free" value={"gluten free"} onChange={handleCheck}/>
+                        <label htmlFor="gluten free">Gluten free</label><br/>
+                        <input type="checkbox" name="ketogenic" value={"ketogenic"} onChange={handleCheck}/>
+                        <label htmlFor="ketogenic">Ketogenic</label><br/>
+                        <input type="checkbox" name="vegetarian" value={"vegetarian"} onChange={handleCheck}/>
+                        <label htmlFor="vegetarian">Vegetarian</label><br/>
+                        <input type="checkbox" name="lacto ovo vegetarian" value={"lacto ovo vegetarian"} onChange={handleCheck}/>
+                        <label htmlFor="lacto ovo vegetarian">Lacto ovo vegetarian</label><br/>
+                        <input type="checkbox" name="vegan" value={"vegan"} onChange={handleCheck}/>
+                        <label htmlFor="vegan">Vegan</label><br/>
+                        <input type="checkbox" name="pescatarian" value={"pescatarian"} onChange={handleCheck}/>
+                        <label htmlFor="pescatarian">Pescatarian</label><br/>
+                        <input type="checkbox" name="paleolithic" value={"paleolithic"} onChange={handleCheck}/>
+                        <label htmlFor="paleolithic">Paleolithic</label><br/>
+                        <input type="checkbox" name="primal" value={"primal"} onChange={handleCheck}/>
+                        <label htmlFor="primal">Primal</label><br/>
+                        <input type="checkbox" name="low fodmap" value={"low fodmap"} onChange={handleCheck}/>
+                        <label htmlFor="low fodmap">Low fodmap</label><br/>
+                        <input type="checkbox" name="whole 30" value={"whole 30"} onChange={handleCheck}/>
+                        <label htmlFor="whole 30">Whole 30</label><br/>
+                        <input type="checkbox" name="dairy free" value={"dairy free"} onChange={handleCheck}/>
+                        <label htmlFor="dairy free">Dairy free</label><br/>
+                    </div>
+                    <br/>
+                    <div className="btn-div">
+                        <button type="submit" className="submit-btn"> Send </button>
+                    </div>
+                </form>
+
+            </div>
+
         </div>
     )
 }

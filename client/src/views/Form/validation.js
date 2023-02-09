@@ -9,7 +9,7 @@ export default function validate (inputs) {
     if (inputs.healthScore > 100 || inputs.healthScore < 0){
         errors.healthScore = 'El valor del healthscore debe estar entre 0 y 100'
     }
-    if (!inputs.summary){
+    if (inputs.summary.length < 15){
         errors.summary = 'Debe contener una descripción del plato';
     }
 

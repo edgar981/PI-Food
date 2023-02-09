@@ -7,6 +7,7 @@
     padding: 20px;
     background-color: #9bdacd;
     width: 98.5%;
+    position: relative;
     /*background-image: url("../../assets/pexels-ella.jpg");*/
 
 }
@@ -19,33 +20,47 @@
     cursor: pointer;
 }
 
+.nav-items a.active{
+    color: #9bdacd;
+    background: rgba(236, 155, 70, 0.75);
+    font-weight: 600;
+    border-radius: 10px;
+}
+
 .link-to{
     color: rgba(236, 155, 70, 0.78);
     font-size: 25px;
     text-decoration: none;
     margin: 15px;
     position: relative;
-
+    padding: 7px 7px;
+    transition: 0.3s;
 }
 
-.link-to::before{
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-    background: rgba(236, 155, 70, 0.89);
-    transition: all .45s;
-}
+/*.link-to::before{*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    left: 0;*/
+/*    bottom: 0;*/
+/*    width: 0;*/
+/*    height: 2px;*/
+/*    background: rgba(236, 155, 70, 0.89);*/
+/*    transition: all .45s;*/
+/*}*/
 
-.link-to:hover::before{
-    width: 100%;
+/*.link-to:hover::before{*/
+/*    width: 100%;*/
+/*}*/
+.link-to:hover{
+    color: #9bdacd;
+    background: rgba(236, 155, 70, 0.71);
+    border-radius: 10px;
 }
 
 .nav-toggle{
     display: none;
 }
+
 
 @media screen and (max-width:850px){
     .nav-items{
@@ -55,11 +70,11 @@
         flex-direction: column;
         left: 0;
         width: 100%;
-        height: 100%;
+        height: 1450px;
         transform: translateX(-100%);
         transition: all .45s;
         backdrop-filter: blur(2px);
-        background-color: #4B8078;
+        background-color: rgba(75, 128, 120, 0.82);
     }
 
     .nav-items > link-to::before{
