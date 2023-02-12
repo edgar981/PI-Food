@@ -11,6 +11,7 @@ import {useEffect} from "react";
 import {getRecipeById} from "../../redux/actions";
 import {Link} from "react-router-dom";
 import "./detail.css"
+import imageDefault from "../../assets/pexels-cats-coming-920220.jpg";
 
 const Detail = () => {
     const dispatch = useDispatch();
@@ -28,7 +29,8 @@ const Detail = () => {
             <div className="detail">
 
                     <div className="image-detail">
-                        <img src={recipeDetail?.image} alt={recipeDetail.name}/>
+                        <img src={recipeDetail?.image ? recipeDetail?.image :
+                        imageDefault} alt={recipeDetail.name}/>
                     </div>
                     <div className="box">
                         <div className="name-detail"><h1>{recipeDetail?.name}</h1></div>
@@ -45,7 +47,8 @@ const Detail = () => {
                                 <summary className="texts">Diet Type: </summary><p>{recipeDetail?.vegetarian === true && recipeDetail?.lowFodmap === true ? ["Vegetarian, ","low Fodmap, "] + recipeDetail?.diets
                                 : recipeDetail?.vegetarian === true ? ["Vegetarian, "] + recipeDetail?.diets
                                     : recipeDetail?.lowFodmap === true ? ["low Fodmap, "] + recipeDetail?.diets
-                                        : recipeDetail?.diets}</p>
+                                        : recipeDetail?.diets ? recipeDetail.diets
+                                        : recipeDetail?.dietName}</p>
                             </details>
                         </div>
 

@@ -6,6 +6,7 @@ import {Link} from "react-router-dom";
 // import {useDispatch} from "react-redux";
 import "./Card.css"
 import React from "react";
+import imageDefault from "../../assets/pexels-cats-coming-920220.jpg";
 
 export default function Card(props) {
 
@@ -16,10 +17,11 @@ export default function Card(props) {
             <div className="card-cover">
             </div>
             <Link to={`/detail/${props.id}`}>
-                <img  src={props.image} alt={props.name} />
+                <img  src={props.image ? props.image :
+                    imageDefault} alt={props.name} />
                 <div className="card-body">
                     <h2>{props.name}</h2>
-                    <p>{props.diets}</p>
+                    <p>{props.diets? props.diets : props.dietName.join(", ")}</p>
                     <p>Read more...</p>
                 </div>
             </Link>

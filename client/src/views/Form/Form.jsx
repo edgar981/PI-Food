@@ -13,7 +13,6 @@ import {useDispatch} from "react-redux";
 import {addRecipe, getDiets} from "../../redux/actions";
 import {useNavigate} from "react-router-dom";
 import "./form.css"
-import imageForm from "../../assets/pexels-larissa-deruzzi-6546181.jpg";
 
 const Form = () => {
     const dispatch = useDispatch();

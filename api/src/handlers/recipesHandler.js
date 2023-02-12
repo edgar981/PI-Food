@@ -29,12 +29,23 @@ const getRecipeHandler = async (req, res) => {
 const getRecipesHandler = async (req, res) => {
     const { name } = req.query;
 
-    const results = name ? await searchRecipesByName(name)
-        : await getAllRecipes();
+    // const results = name ? await searchRecipesByName(name)
+    //     : await getAllRecipes();
     // const results = name ? await searchRecipesByName(name)
     //     : res.status(400).json("No se encontraron recetas");
 
-    res.status(200).json(results);
+    if (name){
+        const results = await searchRecipesByName(name);
+        if (results.length){
+            res.status(200).json(results);
+        } else{
+            res.status(400).send("Recipe not found");
+        }
+    } else{
+        const respuesta = await getAllRecipes();
+        res.status(200).json(respuesta);
+    }
+
 }
 
 

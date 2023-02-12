@@ -356,6 +356,7 @@ export default function Cards() {
                             name={r.name}
                             image={r.image}
                             diets={r.diets}
+                            dietName={r.dietName}
                         />
                     )
                 })

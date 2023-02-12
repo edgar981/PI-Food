@@ -21,24 +21,36 @@ const objFilter = (obj) => {
         }),
     }
 }
+
+const objFilterDb = (obj) => {
+    return {
+        id: obj.id,
+        name: obj.name,
+        summary: obj.summary,
+        healthScore: obj.healthScore,
+        instructions: obj.instructions,
+        dietName: obj.dietName.join(", ")
+    }
+}
 //.map(d => d.charAt(0).toUpperCase() + d.substr(1) + " ")
 
 const getRecipeById = async (idReceta, source) => {
-    const recipe =
-        source === "api" ? (await axios.get(`https://api.spoonacular.com/recipes/${idReceta}/information?apiKey=${API_KEY}`)).data
-            : await Recipe.findByPk(idReceta, {
-                include: {
-                    model: Diet,
-                    attributes: ["name"],
-                    through: {
-                        attributes: [],
-                    }
-                }
-            });
+    // const recipe =
+    //     source === "api" ? (await axios.get(`https://api.spoonacular.com/recipes/${idReceta}/information?apiKey=${API_KEY}`)).data
+    //         : await Recipe.findByPk(idReceta);
+    //
+    // const recipeFiltered = objFilter(recipe);
 
-    const recipeFiltered = objFilter(recipe);
+    if(source === "api"){
+        const recipe = (await axios.get(`https://api.spoonacular.com/recipes/${idReceta}/information?apiKey=${API_KEY}`)).data;
+        const recipeFiltered = objFilter(recipe);
+        return recipeFiltered;
+    } else{
+        const recipe = await Recipe.findByPk(idReceta);
+        const recipedbf = objFilterDb(recipe);
+        return recipedbf;
+    }
 
-    return recipeFiltered;
 }
 
 const createRecipe = async (name, summary, healthScore, instructions, dietName) => {
