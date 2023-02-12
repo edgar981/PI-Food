@@ -32,14 +32,8 @@ const objFilterDb = (obj) => {
         dietName: obj.dietName.join(", ")
     }
 }
-//.map(d => d.charAt(0).toUpperCase() + d.substr(1) + " ")
 
 const getRecipeById = async (idReceta, source) => {
-    // const recipe =
-    //     source === "api" ? (await axios.get(`https://api.spoonacular.com/recipes/${idReceta}/information?apiKey=${API_KEY}`)).data
-    //         : await Recipe.findByPk(idReceta);
-    //
-    // const recipeFiltered = objFilter(recipe);
 
     if(source === "api"){
         const recipe = (await axios.get(`https://api.spoonacular.com/recipes/${idReceta}/information?apiKey=${API_KEY}`)).data;
