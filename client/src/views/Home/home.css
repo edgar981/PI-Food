@@ -1,13 +1,13 @@
 .home {
     background-image: url("../../assets/pexels-ella.jpg");
-    height: 160vh;
-    width: 100vw;
+    height: 150vh;
+    width: 99vw;
     background-size: cover;
     animation: transitionIn 0.9s;
 }
 
 .lp-overlay-home{
-    height: 1050px;
+    height: 150vh;
     width: 100%;
     background-color: rgba(0,0,0,0.2);
     position: absolute;

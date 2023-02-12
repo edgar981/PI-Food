@@ -3,10 +3,9 @@
     align-items: center;
     justify-content: center;
     background-image: url("../../assets/pexels-pixabay-269245.jpg");
-    /*background: #EC9B46;*/
     background-size: cover;
     height: 140vh;
-    width: 100.2vw;
+    width: 99.3vw;
     animation: transitionIn 0.9s;
 }
 
@@ -34,7 +33,7 @@
 
 .form-card{
     width: 590px;
-    height: 950px;
+    height: 970px;
     background: rgba(255, 255, 255, 0.5);
     padding: 5px;
     border-radius: 15px;
@@ -175,6 +174,7 @@
 .danger{
     height: 20px;
     width: 400px;
+    color: #ef3208;
 }
 
 .d-name{
@@ -206,8 +206,6 @@
 
 .submit-btn:hover{
     cursor: pointer;
-    /*color: #C3FCF1;*/
-    /*background: rgba(75, 128, 120, 0.67);*/
     color: #4B8078;
     background: rgba(255, 255, 255, 0.84);
     transition-duration: .35s;
@@ -255,11 +253,6 @@
     border-radius: 7px;
 }
 
-/*.n-name:valid,*/
-/*.n-name:focus{*/
-/*    border: 1px solid rgba(236, 155, 70, 0.89);;*/
-/*}*/
-
 .n-summary:valid ~ span,
 .n-summary:focus ~ span{
     color: #4B8078;
@@ -270,11 +263,6 @@
     background: rgba(246, 243, 243, 0.78);
     border-radius: 7px;
 }
-
-/*.n-summary:valid,*/
-/*.n-summary:focus{*/
-/*    border: 1px solid rgba(236, 155, 70, 0.89);;*/
-/*}*/
 
 .d-instructions span{
     position: absolute;
@@ -302,7 +290,7 @@
 
 .lp-overlay-form{
     height: 1140px;
-    width: 100%;
+    width: 99.3vw;
     background-color: rgba(0,0,0,0.15);
     position: absolute;
 }

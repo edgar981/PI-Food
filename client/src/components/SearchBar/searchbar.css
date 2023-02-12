@@ -1,5 +1,5 @@
 .searchbar{
-    position: relative;
+    position: absolute;
     width: 37px;
     height: 35px;
     background: #eaa862;
@@ -7,7 +7,7 @@
     transition: 0.5s;
     box-shadow: 0 0 0 2px #76c0b3;
     overflow: hidden;
-    left: 180px;
+
 }
 
 .searchbar.active{
@@ -79,12 +79,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    right: -3px;
 }
 
-.go{
-    overflow: hidden;
-    right: 1px;
-}
 
 .go.active::before{
     right: 15px;

@@ -6,7 +6,7 @@
     align-items: center;
     padding: 20px;
     background-color: #9bdacd;
-    width: 98.5%;
+    width: 97.5%;
     position: relative;
     /*background-image: url("../../assets/pexels-ella.jpg");*/
 
@@ -18,6 +18,11 @@
     margin: 15px;
     color: rgba(236, 155, 70, 0.8);
     cursor: pointer;
+}
+
+.nav-items{
+    display: flex;
+    padding: 10px 55px;
 }
 
 .nav-items a.active{
@@ -37,20 +42,6 @@
     transition: 0.3s;
 }
 
-/*.link-to::before{*/
-/*    content: "";*/
-/*    position: absolute;*/
-/*    left: 0;*/
-/*    bottom: 0;*/
-/*    width: 0;*/
-/*    height: 2px;*/
-/*    background: rgba(236, 155, 70, 0.89);*/
-/*    transition: all .45s;*/
-/*}*/
-
-/*.link-to:hover::before{*/
-/*    width: 100%;*/
-/*}*/
 .link-to:hover{
     color: #9bdacd;
     background: rgba(236, 155, 70, 0.71);
@@ -61,6 +52,12 @@
     display: none;
 }
 
+.sb{
+    padding: 20px 20px;
+    width: 220px;
+    display: flex;
+    justify-content: flex-end;
+}
 
 @media screen and (max-width:850px){
     .nav-items{
@@ -68,7 +65,7 @@
         top: 60px;
         display: flex;
         flex-direction: column;
-        left: 0;
+        right: -60px;
         width: 100%;
         height: 1450px;
         transform: translateX(-100%);
@@ -83,6 +80,7 @@
 
     .nav-items.open{
         transform: translateX(0);
+
     }
 
     .nav-toggle{
@@ -133,32 +131,15 @@
     .nav-toggle.open > .bar::after{
         transform: rotate(-45deg) translate(26px, 26px);
     }
+
+    .sb{
+        padding: 0px 15px;
+        width: 200px;
+        height: 40px;
+        display: flex;
+        justify-content: flex-start;
+    }
 }
 
-/*.nav .nav-items{*/
-/*    display: flex;*/
-/*}*/
-
-/*.nav .nav-items a{*/
-/*    border-radius: 50px;*/
-/*    color: #005b49;*/
-/*    font-size: 26px;*/
-/*    text-decoration: none;*/
-/*    margin: 0 15px;*/
-/*    position: relative;*/
-/*    opacity: 0.9;*/
-/*    padding: 10px 10px;*/
-/*}*/
-
-/*.nav > .nav-items > a:hover{*/
-/*    background: rgb(226, 153, 62);*/
-/*    color: rgb(195, 252, 241);*/
-/*}*/
-
-/*.nav .nav-items a.active{*/
-/*    color: rgb(226, 153, 62);*/
-/*    background: rgb(195, 252, 241);*/
-/*    font-weight: 600;*/
-/*}*/
 
 

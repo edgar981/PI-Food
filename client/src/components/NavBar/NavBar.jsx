@@ -11,14 +11,14 @@ const NavBar = (props) => {
         <div className="nav">
             <div className='logo' onClick={()=>navigate("/")}>PI-FOOD</div>
             <div className={`nav-items ${isOpen && "open"}`}>
+                <div className="sb"><SearchBar /></div>
                 <NavLink to='/home' className="link-to">HOME</NavLink>
                 <NavLink to='/create' className="link-to">FORM</NavLink>
             </div>
-            <SearchBar />
             <div className={`nav-toggle ${isOpen && "open"}`} onClick={() => setIsOpen(!isOpen)}>
                 <div className="bar"></div>
             </div>
-            <div></div>
+            {/*<div></div>*/}
 
         </div>
     )

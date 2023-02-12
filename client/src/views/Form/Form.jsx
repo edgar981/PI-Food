@@ -51,7 +51,7 @@ const Form = () => {
                 [evento.target.name]: evento.target.value,
             })
         );
-        console.log(Object.values(errors).length)
+
     }
 
     const handleCheck = (evento) => {
@@ -68,6 +68,12 @@ const Form = () => {
             ...inputs,
             dietName: arrDietsCopy,
         });
+
+        setErrors(validate({
+                ...inputs,
+                [evento.target.name]: evento.target.value,
+            })
+        );
 
     }
 
@@ -90,9 +96,6 @@ const Form = () => {
             <div className="lp-overlay-form"></div>
             <div className="form-card">
 
-                {/*<img src={imageForm} className="img-form" alt=''/>*/}
-                {/*<div className="lp-overlay"></div>*/}
-                {/* */}
                 <div className="text-form">
                     <h1>Create your recipe</h1>
                 </div>
@@ -147,7 +150,7 @@ const Form = () => {
                         <input type="checkbox" name="dairy free" value={"dairy free"} onChange={handleCheck}/>
                         <label htmlFor="dairy free">Dairy free</label><br/>
                     </div>
-                    <br/>
+                    {errors.dietName ? <p className='danger'>{errors.dietName}</p> : null}
                     <div className="btn-div">
                         <button type="submit" className="submit-btn"> Send </button>
                     </div>

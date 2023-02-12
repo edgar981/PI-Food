@@ -3,18 +3,38 @@ import {useState} from "react";
 import {useDispatch} from "react-redux";
 import {getRecipesByName} from "../../redux/actions";
 import "./searchbar.css"
+import validate from "../../views/Form/validation";
 
 export default function SearchBar() {
     const [recipe, setRecipe] = useState("");
     const [isActive, setIsActive] = useState(false);
+    const [errorsSearch, setErrorsSearch] = useState("");
     const dispatch = useDispatch();
+
+    const validate = (recipe)=>{
+        const regex = /^[A-Za-z\s]+$/;
+        const errorsSearch = {};
+
+        if(!regex.test(recipe)){
+            errorsSearch.recipe = 'Debe incluir un nombre valido';
+        }
+
+        return errorsSearch;
+    }
 
     const handleInput = (evento) => {
         setRecipe(evento.target.value);
+
+        setErrorsSearch(validate(evento.target.value));
     }
 
     const onSearch = (evento) => {
-        dispatch(getRecipesByName(recipe));
+        if (Object.keys(errorsSearch).length === 0){
+            dispatch(getRecipesByName(recipe));
+        } else {
+            alert("Debe incluir un nombre valido");
+        }
+
     }
 
     return (

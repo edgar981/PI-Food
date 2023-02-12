@@ -1,7 +1,10 @@
 import Card from '../Card/Card';
 import {useSelector} from "react-redux";
 import "./Cards.css"
-import React from "react";
+import React, {useMemo, useState} from "react";
+import Pagination from "../Pagination/Pagination";
+//
+// let PageSize = 9;
 
 export default function Cards() {
     const recipes = useSelector(state => state.recipes);
@@ -327,22 +330,37 @@ export default function Cards() {
     //         ]
     //     }
     // ]
+    //Pagination
+    const [currentPage, setCurrentPage] = useState(1);
+    const [recipesPerPage, setRecipesPerPage] = useState(9);
+
+    //page
+    const lastPostIndex = currentPage * recipesPerPage;
+    const firstPostIndex = lastPostIndex - recipesPerPage;
+    const currentRecipes = recipes.slice(firstPostIndex, lastPostIndex);
+
+    // const currentRecipes = useMemo(() => {
+    //     const firstPageIndex = (currentPage - 1) * PageSize;
+    //     const lastPageIndex = firstPageIndex + PageSize;
+    //     return recipes.slice(firstPageIndex, lastPageIndex);
+    // }, [currentPage]);
 
     return (
         <div className="cards">
             {
-                recipes.map((r, index)=>{
+                currentRecipes.map((r, index)=>{
                     return (
                         <Card
                             id={r.id}
                             key={index}
                             name={r.name}
                             image={r.image}
-                            diets={r.diets.charAt(0).toUpperCase() + r.diets.slice(1)}
+                            diets={r.diets}
                         />
                     )
                 })
             }
+            <Pagination allRecipes={recipes.length} recipesPerPage={recipesPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
         </div>
     );
 }

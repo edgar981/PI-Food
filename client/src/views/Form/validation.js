@@ -12,6 +12,9 @@ export default function validate (inputs) {
     if (inputs.summary.length < 15){
         errors.summary = 'Debe contener una descripción del plato';
     }
+    if (inputs.dietName.length < 1){
+        errors.dietName = 'Debes seleccionar al menos un tipo de dieta'
+    }
 
     return errors;
 }
