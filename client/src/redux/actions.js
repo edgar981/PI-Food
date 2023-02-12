@@ -1,4 +1,5 @@
 // eslint-disable-next-line
+import axios from "axios";
 import {
     GET_RECIPES,
     GET_RECIPE_DETAIL,
@@ -9,7 +10,7 @@ import {
     ORDER_AZ,
     ORDER_SCORE
 } from "./actionTypes";
-import axios from "axios";
+
 
 export const getRecipes = () => {
     // return async function (dispatch) {

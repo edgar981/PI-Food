@@ -1,8 +1,3 @@
-/*
-Botón para ingresar al home (Ruta principal)
-
- */
-// import videoLoop from "../../assets/video_food.mp4"
 import React from "react";
 import videoLanding from "../../assets/video_landing.mp4";
 import "./landing.css"
@@ -14,7 +9,7 @@ const Landing = () => {
 
     return(
         <div className="landing">
-            <video src={videoLanding} autoPlay loop muted className="video-lp"/>
+            <video src={videoLanding} autoPlay loop muted className="video-lp" data-testid="video-lp"/>
             <div className="lp-overlay"></div>
 
             <div className="home-text">
@@ -22,7 +17,7 @@ const Landing = () => {
                 <p className="intro-landing">Transform your kitchen into a culinary adventure</p>
             </div>
 
-            <div className="home-btn" onClick={()=>navigate("/home")}>Explore</div>
+            <div className="home-btn" onClick={()=>navigate("/home")} data-testid="home-btn">Explore</div>
         </div>
     )
 }
