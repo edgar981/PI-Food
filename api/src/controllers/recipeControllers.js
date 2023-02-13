@@ -2,7 +2,7 @@ const {Recipe, Diet} = require("../db")
 const axios = require("axios");
 const {API_KEY} = process.env;
 
-const objFilter = (obj) => {
+const objFilter = (obj) => {                    //Filter the elements from api
     return {
         id: obj.id,
         vegetarian: obj.vegetarian,
@@ -22,7 +22,7 @@ const objFilter = (obj) => {
     }
 }
 
-const objFilterDb = (obj) => {
+const objFilterDb = (obj) => {      //Setting the elements from Db
     return {
         id: obj.id,
         name: obj.name,
@@ -35,7 +35,7 @@ const objFilterDb = (obj) => {
 
 const getRecipeById = async (idReceta, source) => {
 
-    if(source === "api"){
+    if(source === "api"){                               //When clicking on recipe Getting it from db and/or api
         const recipe = (await axios.get(`https://api.spoonacular.com/recipes/${idReceta}/information?apiKey=${API_KEY}`)).data;
         const recipeFiltered = objFilter(recipe);
         return recipeFiltered;
@@ -65,9 +65,9 @@ const searchRecipesByName = async (name) => {
 
     const apiRecipes = apiRecipesRaw.results.map(r => objFilter(r));
 
-    const filteredApi = apiRecipes.filter(r => r.name.toLowerCase().includes(name.toLowerCase()));
+    const filteredApi = apiRecipes.filter(r => r.name.toLowerCase().includes(name.toLowerCase()));  //Filter by recipe matching with name passed as query.
 
-    return [...filteredApi, ...databaseRecipes];
+    return [...filteredApi, ...databaseRecipes];  //all matched recipes
 }
 
 const getAllRecipes = async () => {

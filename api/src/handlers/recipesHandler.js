@@ -1,4 +1,3 @@
-
 const {DataTypes} = require("sequelize");
 const {getRecipeById, createRecipe, searchRecipesByName, getAllRecipes} = require("../controllers/recipeControllers");
 
@@ -16,7 +15,7 @@ const createRecipeHandler = async (req, res) => {
 const getRecipeHandler = async (req, res) => {
     const {idReceta} = req.params;
 
-    const source = isNaN(idReceta) ? "bdd" : "api";
+    const source = isNaN(idReceta) ? "bdd" : "api";  //condition to get a single recipe
 
     try {
         const recipe = await getRecipeById(idReceta, source);
@@ -29,13 +28,8 @@ const getRecipeHandler = async (req, res) => {
 const getRecipesHandler = async (req, res) => {
     const { name } = req.query;
 
-    // const results = name ? await searchRecipesByName(name)
-    //     : await getAllRecipes();
-    // const results = name ? await searchRecipesByName(name)
-    //     : res.status(400).json("No se encontraron recetas");
-
     if (name){
-        const results = await searchRecipesByName(name);
+        const results = await searchRecipesByName(name); //Passing name to the search function and find recipe
         if (results.length){
             res.status(200).json(results);
         } else{
