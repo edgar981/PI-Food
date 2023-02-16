@@ -3,7 +3,6 @@ import {useState} from "react";
 import {useDispatch} from "react-redux";
 import {getRecipesByName} from "../../redux/actions";
 import "./searchbar.css"
-import validate from "../../views/Form/validation";
 
 export default function SearchBar() {
     const [recipe, setRecipe] = useState("");

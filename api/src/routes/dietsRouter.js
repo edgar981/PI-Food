@@ -5,8 +5,10 @@ const {API_KEY} = process.env;
 
 const dietsRouter = Router();
 const dietsTypes = ['gluten free', 'ketogenic', 'vegetarian', 'lacto vegetarian','ovo vegetarian', 'lacto ovo vegetarian', 'vegan', 'pescatarian', 'paleolithic', 'primal', 'low fodmap', 'whole 30', 'dairy free'];
+
 /*
-Hay problemas con: Low Fodmap, pescetarian, vegetarian
+Obtener todos los tipos de dieta posibles
+En una primera instancia, cuando no exista ninguno, deberán precargar la base de datos con los tipos de datos indicados por spoonacular
  */
 
 dietsRouter.get("/", async (req, res)=>{

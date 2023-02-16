@@ -14,18 +14,10 @@ import {useDispatch} from "react-redux";
 import Cards from "../../components/Cards/Cards";
 import {filterRecipes, getRecipes, orderRecipes, orderRecipesScore} from "../../redux/actions";
 import "./home.css"
-import videoLanding from "../../assets/video_landing.mp4";
 
 
 const Home = () => {
     const dispatch = useDispatch();
-
-    //Pagination
-    const [currentPage, setCurrentPage] = useState(1);
-    const [postsPerPage, setPostsPerPage] = useState(9);
-
-    // const [isOpen, setIsOpen] = useState(false);
-    // const [order, setOrder] = useState('');
 
     useEffect(()=>{
         dispatch(getRecipes());
@@ -44,9 +36,6 @@ const Home = () => {
             dispatch(orderRecipesScore(e.target.value));
         }
     }
-    //page
-    const lastPostIndex = currentPage * postsPerPage;
-    const firstPostIndex = lastPostIndex - postsPerPage;
 
     return(
         <div className="home">

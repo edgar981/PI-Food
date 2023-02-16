@@ -2,6 +2,10 @@ const {DataTypes} = require("sequelize");
 const {getRecipeById, createRecipe, searchRecipesByName, getAllRecipes} = require("../controllers/recipeControllers");
 
 const createRecipeHandler = async (req, res) => {
+    /*
+    Recibe los datos recolectados desde el formulario controlado de la ruta de creación de recetas por body
+    Crea una receta en la base de datos relacionada con sus tipos de dietas.
+     */
     const { name, summary, healthScore, instructions, dietName} = req.body;
 
     try {
@@ -13,6 +17,11 @@ const createRecipeHandler = async (req, res) => {
 }
 
 const getRecipeHandler = async (req, res) => {
+    /*
+    Obtener el detalle de una receta en particular
+    Debe traer solo los datos pedidos en la ruta de detalle de receta
+    Incluir los tipos de dieta asociados
+     */
     const {idReceta} = req.params;
 
     const source = isNaN(idReceta) ? "bdd" : "api";  //condition to get a single recipe
@@ -26,6 +35,10 @@ const getRecipeHandler = async (req, res) => {
 }
 
 const getRecipesHandler = async (req, res) => {
+    /*
+    Obtener un listado de las recetas que contengan la palabra ingresada como query parameter
+    Si no existe ninguna receta mostrar un mensaje adecuado
+     */
     const { name } = req.query;
 
     if (name){
