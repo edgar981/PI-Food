@@ -17,9 +17,9 @@
     top: 80px;
 }
 
-.card:hover{
-    transform: scale(1.1,1.1);
-}
+/*.card:hover{*/
+/*    transform: scale(1.1,1.1);*/
+/*}*/
 
 .card-cover {
     display: flex;

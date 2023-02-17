@@ -18,5 +18,16 @@ describe('Recipe model', () => {
         Recipe.create({ name: 'Milanesa a la napolitana' });
       });
     });
+
+    describe('summary', () => {
+      it('should throw an error if summary is null', (done) => {
+        Recipe.create({ name: 'Milanesa a la napolitana' })
+            .then(() => done(new Error('It requires a description')))
+            .catch(() => done());
+      });
+      it('should work when it has summary', () => {
+        Recipe.create({ name: 'Milanesa a la napolitana', summary: 'Receta para hacer con la familia' });
+      });
+    });
   });
 });

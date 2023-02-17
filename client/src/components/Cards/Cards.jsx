@@ -29,6 +29,7 @@ export default function Cards() {
                             image={r.image}
                             diets={r.diets}
                             dietName={r.dietName}
+                            healthscore={r.healthScore}
                         />
                     )
                 })

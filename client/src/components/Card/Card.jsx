@@ -21,7 +21,8 @@ export default function Card(props) {
                     imageDefault} alt={props.name} />
                 <div className="card-body">
                     <h2>{props.name}</h2>
-                    <p>{props.diets? props.diets : props.dietName.join(", ")}</p>
+                    <h3>{props.healthscore}</h3>
+                    <p>{props.diets? props.diets : props.dietName}</p>
                     <p>Read more...</p>
                 </div>
             </Link>
