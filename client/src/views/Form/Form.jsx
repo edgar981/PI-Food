@@ -92,7 +92,7 @@ const Form = () => {
 
     return(
         <div className="form">
-            <div className="lp-overlay-form"></div>
+            {/*<div className="lp-overlay-form"></div>*/}
             <div className="form-card">
 
                 <div className="text-form">
